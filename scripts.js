@@ -1,5 +1,5 @@
 function add(a, b) {
-        return a + b;
+        return +(a) + +(b);
 };
 
 function subtract(a, b) {
@@ -14,19 +14,19 @@ function divide(a, b) {
         return a / b;
 };
 
-function operate(input) {
+function operate() {
         switch (input.operator) {
                 case '*':
-                        multiply(input.leftExp, input.rightExp);
+                        console.log(multiply(input.leftExp, input.rightExp));
                         break;
                 case '+':
-                        add(input.leftExp, input.rightExp);
+                        console.log(add(input.leftExp, input.rightExp));
                         break;
                 case '-':
-                        subtract(input.leftExp, input.rightExp);
+                        console.log(subtract(input.leftExp, input.rightExp));
                         break;
                 case '/':
-                        divide(input.leftExp, input.rightExp);
+                        console.log(divide(input.leftExp, input.rightExp));
                         break;
         };
         clear();
@@ -91,5 +91,4 @@ const equalButton = document.querySelector('.equal');
 equalButton.addEventListener('click', operate);
 
 const displayTop = document.querySelector('#displayTop');
-//displayTop.textContent = ;
 const displayBot = document.querySelector('#displayBot');

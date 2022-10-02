@@ -1,0 +1,53 @@
+body {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+}
+.calculator {
+        display: grid;
+        height: 30vh;
+        width: 30vw;
+        grid-template-columns: repeat(4, 1fr);
+        grid-template-rows: repeat(5, 1fr);
+}
+
+#displayTop,
+#displayBot {
+        display: flex;
+        justify-content: flex-end;
+        align-items: center;
+        height: 50%;
+        border: 1px solid black;
+}
+
+#displayBot {
+        /**/
+}
+
+.display {
+        grid-area: 1 / 1 / auto / span 4; 
+}
+.clear {
+        grid-area: 5 / 1 / auto / span 2;
+}
+
+.equal {
+        grid-area: 5 / 3 / auto;
+}
+
+.multiply {
+        grid-area: 5 / 4 / auto;
+}
+
+.divide {
+        grid-area: 4 / 4 / auto;
+}
+
+.minus {
+        grid-area: 3 / 4 / auto;
+}
+
+.plus {
+        grid-area: 2 / 4 / auto;
+}

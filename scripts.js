@@ -32,19 +32,6 @@ function operate(input) {
         clear();
 };
 
-const operatorButton = document.querySelectorAll(/*later*/);
-operatorButton.addEventListener('click', storeOperator);
-
-const numberButton = document.querySelectorAll(/*later*/);
-numberButton.addEventListener('click', storeNumber);
-
-const equalButton = document.querySelector(/*later*/);
-equalButton.addEventListener('click', operate);
-
-const displayTop = document.querySelector(/*later*/);
-//displayTop.textContent = ;
-const displayBot = document.querySelector(/*later*/);
-
 function storeOperator() {
         input.operator = operatorButton.textContent;
 };
@@ -72,3 +59,18 @@ const input = {
         rightExp,
         operator,
 };
+
+
+const operatorButton = document.querySelectorAll(/*later*/);
+operatorButton.addEventListener('click', storeOperator);
+
+const numberButton = document.querySelectorAll(/*later*/);
+numberButton.addEventListener('click', storeNumber);
+
+const equalButton = document.querySelector(/*later*/);
+equalButton.addEventListener('click', operate);
+
+const displayTop = document.querySelector(/*later*/);
+//displayTop.textContent = ;
+const displayBot = document.querySelector(/*later*/);
+

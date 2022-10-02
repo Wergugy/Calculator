@@ -39,6 +39,7 @@ function storeOperator(e) {
 };
 
 function storeNumber(e) {
+
         if (!input.operator) {
                 if (input.leftExp === null) input.leftExp =
                  e.target.textContent;
@@ -88,6 +89,9 @@ function updateBotDisplay() {
 function updateAnswer(answer) {
         displayTop.textContent = displayBot.textContent;
         displayBot.textContent = answer;
+        input.leftExp = answer;
+        input.operator = null;
+        input.rightExp = null;
 };
 
 const operatorButtons = document.querySelectorAll('.operator');

@@ -32,13 +32,14 @@ function operate(input) {
         clear();
 };
 
-function storeOperator() {
-        input.operator = operatorButton.textContent;
+function storeOperator(e) {
+        input.operator = e.target.textContent;
+        console.log(input.operator);
 };
 
-function storeNumber() {
-        if (!input.operator) input.leftExp =+ numberButton.textContent;
-        else input.rightExp =+ numberButton.textContent;
+function storeNumber(e) {
+        if (!input.operator) input.leftExp =+ e.target.textContent;
+        else input.rightExp =+ e.target.textContent;
 };
 
 function getInput() {
@@ -49,28 +50,39 @@ function getInput() {
 };
 
 function clear() {
-        input.leftExp = null,
-        input.rightExp = null,
+        console.log(input);
+        input.leftExp = null;
+        input.rightExp = null;
         input.operator = null;
 };
 
 const input = {
-        leftExp,
-        rightExp,
-        operator,
+        leftExp: null,
+        rightExp: null,
+        operator: null,
 };
 
 
-const operatorButton = document.querySelectorAll(/*later*/);
-operatorButton.addEventListener('click', storeOperator);
+const operatorButtons = document.querySelectorAll('.operator');
+console.log(operatorButtons);
+operatorButtons.forEach((operator) => {
+        operator.addEventListener('click', storeOperator)
+});
 
-const numberButton = document.querySelectorAll(/*later*/);
-numberButton.addEventListener('click', storeNumber);
+const clearButton = document.querySelector('.clear');
+clearButton.addEventListener('click', clear);
 
-const equalButton = document.querySelector(/*later*/);
+const numberButtons = document.querySelectorAll('.num');
+console.log(numberButtons);
+numberButtons.forEach((number) => {
+        number.addEventListener('click', storeNumber)
+});
+
+const equalButton = document.querySelector('.equal');
 equalButton.addEventListener('click', operate);
 
-const displayTop = document.querySelector(/*later*/);
+const displayTop = document.querySelector('#displayTop');
 //displayTop.textContent = ;
-const displayBot = document.querySelector(/*later*/);
+const displayBot = document.querySelector('#displayBot');
+
 

@@ -5,6 +5,7 @@ body {
         align-items: center;
 }
 .calculator {
+        
         display: grid;
         height: 30vh;
         width: 30vw;
@@ -18,15 +19,16 @@ body {
         justify-content: flex-end;
         align-items: center;
         height: 50%;
-        border: 1px solid black;
+        
 }
-
+/*
 #displayBot {
-        /**/
+        
 }
-
+*/
 .display {
         grid-area: 1 / 1 / auto / span 4; 
+        border: 1px solid black;
 }
 .clear {
         grid-area: 5 / 1 / auto / span 2;

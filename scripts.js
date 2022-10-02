@@ -15,26 +15,27 @@ function divide(a, b) {
 };
 
 function operate() {
+        let answer;
         switch (input.operator) {
                 case '*':
-                        console.log(multiply(input.leftExp, input.rightExp));
+                        answer = multiply(input.leftExp, input.rightExp);
                         break;
                 case '+':
-                        console.log(add(input.leftExp, input.rightExp));
+                        answer = add(input.leftExp, input.rightExp);
                         break;
                 case '-':
-                        console.log(subtract(input.leftExp, input.rightExp));
+                        answer = subtract(input.leftExp, input.rightExp);
                         break;
                 case '/':
-                        console.log(divide(input.leftExp, input.rightExp));
+                        answer = divide(input.leftExp, input.rightExp);
                         break;
         };
-        clear();
+        updateAnswer(answer);
 };
 
 function storeOperator(e) {
         input.operator = e.target.textContent;
-        console.log(input.operator);
+        updateBotDisplay();
 };
 
 function storeNumber(e) {
@@ -43,13 +44,15 @@ function storeNumber(e) {
                  e.target.textContent;
                  else input.leftExp +=
                  e.target.textContent;
+                updateBotDisplay();
         }
         else {
                 if (input.rightExp === null) input.rightExp =
                  e.target.textContent;
                  else input.rightExp +=
                  e.target.textContent;
-        }
+                 updateBotDisplay();
+        };
 };
 
 function getInput() {
@@ -64,12 +67,27 @@ function clear() {
         input.leftExp = null;
         input.rightExp = null;
         input.operator = null;
+        displayTop.textContent = null;
+        updateBotDisplay();
 };
 
 const input = {
         leftExp: null,
         rightExp: null,
         operator: null,
+};
+
+function updateBotDisplay() {
+        if(Object.values(input).every(v => v !== null)) {
+        displayBot.textContent = input.leftExp + ' '  + input.operator + ' '  + input.rightExp;
+        }
+        else if (!input.operator) displayBot.textContent = input.leftExp;
+        else displayBot.textContent = input.leftExp + ' ' + input.operator;
+};
+
+function updateAnswer(answer) {
+        displayTop.textContent = displayBot.textContent;
+        displayBot.textContent = answer;
 };
 
 const operatorButtons = document.querySelectorAll('.operator');

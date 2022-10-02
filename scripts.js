@@ -38,8 +38,18 @@ function storeOperator(e) {
 };
 
 function storeNumber(e) {
-        if (!input.operator) input.leftExp =+ e.target.textContent;
-        else input.rightExp =+ e.target.textContent;
+        if (!input.operator) {
+                if (input.leftExp === null) input.leftExp =
+                 e.target.textContent;
+                 else input.leftExp +=
+                 e.target.textContent;
+        }
+        else {
+                if (input.rightExp === null) input.rightExp =
+                 e.target.textContent;
+                 else input.rightExp +=
+                 e.target.textContent;
+        }
 };
 
 function getInput() {
@@ -62,7 +72,6 @@ const input = {
         operator: null,
 };
 
-
 const operatorButtons = document.querySelectorAll('.operator');
 console.log(operatorButtons);
 operatorButtons.forEach((operator) => {
@@ -84,5 +93,3 @@ equalButton.addEventListener('click', operate);
 const displayTop = document.querySelector('#displayTop');
 //displayTop.textContent = ;
 const displayBot = document.querySelector('#displayBot');
-
-

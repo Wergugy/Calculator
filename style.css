@@ -5,12 +5,17 @@ body {
         align-items: center;
 }
 .calculator {
-        
+        box-sizing: border-box;
         display: grid;
-        height: 30vh;
-        width: 30vw;
+        height: fit-content;
+        width: fit-content;
         grid-template-columns: repeat(4, 60px);
         grid-template-rows: repeat(6, 60px);
+        padding: 5px;
+        background: lightgoldenrodyellow;
+        border: 3px solid #600080;
+        border-radius: 7px;
+        box-shadow: 2px #f2ccff; 
 }
 
 #displayTop,
@@ -26,16 +31,23 @@ button {
         border-radius: 5px;
         box-shadow: 2px;
 }
+
+.operator {
+        background: lightseagreen;
+}
+
 .display {
         grid-area: 1 / 1 / auto / span 4; 
         border: 1px solid black;
 }
 .clear {
         grid-area: 2 / 3 / auto / span 2;
+        background: hsla(250, 30%, 50%, .5);
 }
 
 .equal {
         grid-area: 6 / 3 / auto;
+        background: #5db3ec;
 }
 
 .multiply {
@@ -58,4 +70,8 @@ button {
         grid-area: 2 / 1 / auto / span 2;
         border-left: 1px solid black;
         background: grey;
+}
+
+.num {
+        background: #ff8080;
 }

@@ -39,7 +39,7 @@ function storeOperator(e) {
 };
 
 function storeNumber(e) {
-
+        //if (!displayTop.textContent && )
         if (!input.operator) {
                 if (input.leftExp === null) input.leftExp =
                  e.target.textContent;

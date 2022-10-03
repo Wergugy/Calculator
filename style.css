@@ -9,8 +9,8 @@ body {
         display: grid;
         height: 30vh;
         width: 30vw;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: repeat(5, 1fr);
+        grid-template-columns: repeat(4, 60px);
+        grid-template-rows: repeat(6, 60px);
 }
 
 #displayTop,
@@ -21,35 +21,41 @@ body {
         height: 50%;
         
 }
-/*
-#displayBot {
-        
+
+button {
+        border-radius: 5px;
+        box-shadow: 2px;
 }
-*/
 .display {
         grid-area: 1 / 1 / auto / span 4; 
         border: 1px solid black;
 }
 .clear {
-        grid-area: 5 / 1 / auto / span 2;
+        grid-area: 2 / 3 / auto / span 2;
 }
 
 .equal {
-        grid-area: 5 / 3 / auto;
+        grid-area: 6 / 3 / auto;
 }
 
 .multiply {
-        grid-area: 5 / 4 / auto;
+        grid-area: 6 / 4 / auto;
 }
 
 .divide {
-        grid-area: 4 / 4 / auto;
+        grid-area: 5 / 4 / auto;
 }
 
 .minus {
-        grid-area: 3 / 4 / auto;
+        grid-area: 4 / 4 / auto;
 }
 
 .plus {
-        grid-area: 2 / 4 / auto;
+        grid-area: 3 / 4 / auto;
+}
+
+.fill {
+        grid-area: 2 / 1 / auto / span 2;
+        border-left: 1px solid black;
+        background: grey;
 }

@@ -5,7 +5,7 @@ function add(a, b) {
 function subtract(a, b) {
         return a - b;
 };
-      
+
 function multiply(a, b) {
         return a * b;
 };
@@ -39,20 +39,29 @@ function storeOperator(e) {
 };
 
 function storeNumber(e) {
-        //if (!displayTop.textContent && )
+        //if (e.target.textContent.includes('.')
+                //&& (e.target.textContent + '') === '.') return;
         if (!input.operator) {
                 if (input.leftExp === null) input.leftExp =
-                 e.target.textContent;
-                 else input.leftExp +=
-                 e.target.textContent;
+                        e.target.textContent;
+                else {
+                        if (input.leftExp.includes('.')
+                                && e.target.textContent === '.') return;
+                        input.leftExp +=
+                                e.target.textContent;
+                }
                 updateBotDisplay();
         }
         else {
                 if (input.rightExp === null) input.rightExp =
-                 e.target.textContent;
-                 else input.rightExp +=
-                 e.target.textContent;
-                 updateBotDisplay();
+                        e.target.textContent;
+                        else {
+                                if (input.rightExp.includes('.')
+                                        && e.target.textContent === '.') return;
+                                input.rightExp +=
+                                        e.target.textContent;
+                        }
+                updateBotDisplay();
         };
 };
 
@@ -79,8 +88,8 @@ const input = {
 };
 
 function updateBotDisplay() {
-        if(Object.values(input).every(v => v !== null)) {
-        displayBot.textContent = input.leftExp + ' '  + input.operator + ' '  + input.rightExp;
+        if (Object.values(input).every(v => v !== null)) {
+                displayBot.textContent = input.leftExp + ' ' + input.operator + ' ' + input.rightExp;
         }
         else if (!input.operator) displayBot.textContent = input.leftExp;
         else displayBot.textContent = input.leftExp + ' ' + input.operator;

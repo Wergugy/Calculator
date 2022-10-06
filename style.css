@@ -69,7 +69,7 @@ button {
 .fill {
         grid-area: 2 / 1 / auto / span 2;
         border-left: 1px solid black;
-        background: grey;
+        background: lightcyan;
 }
 
 .num {

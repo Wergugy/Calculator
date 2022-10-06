@@ -11,11 +11,11 @@ function multiply(a, b) {
 };
 
 function divide(a, b) {
-        return a / b;
+        if (b === '0') {return displayBot.textContent = 'NOPE'}
+        else return a / b;
 };
 
 function operate() {
-        let answer;
         switch (input.operator) {
                 case '*':
                         answer = multiply(input.leftExp, input.rightExp);
@@ -39,8 +39,12 @@ function storeOperator(e) {
 };
 
 function storeNumber(e) {
-        //if (e.target.textContent.includes('.')
-                //&& (e.target.textContent + '') === '.') return;
+        while(answer) {
+        if (displayBot.textContent === (answer.toString())) {
+               input.leftExp = '',
+                updateBotDisplay();
+                displayTop.textContent = `Ans= ${answer}`;
+        } break;};
         if (!input.operator) {
                 if (input.leftExp === null) input.leftExp =
                         e.target.textContent;
@@ -78,6 +82,7 @@ function clear() {
         input.rightExp = null;
         input.operator = null;
         displayTop.textContent = null;
+        answer = null;
         updateBotDisplay();
 };
 
@@ -103,6 +108,14 @@ function updateAnswer(answer) {
         input.rightExp = null;
 };
 
+function fixing() {
+        if (!input.operator) input.leftExp.length -1;
+        else if (input.operator && input.rightExp === null) input.operator = null;
+        else input.rightExp.slice(0,-1);
+}
+
+let answer = null;
+
 const operatorButtons = document.querySelectorAll('.operator');
 console.log(operatorButtons);
 operatorButtons.forEach((operator) => {
@@ -123,3 +136,6 @@ equalButton.addEventListener('click', operate);
 
 const displayTop = document.querySelector('#displayTop');
 const displayBot = document.querySelector('#displayBot');
+
+const correct = document.querySelector('.fill');
+correct.addEventListener('click', fixing);

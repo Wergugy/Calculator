@@ -1,8 +1,16 @@
+*,
+html,
+*::before,
+*::after {
+        font-family: 'Courier New', Verdana, Georgia, Garamond, sans-serif;
+}
+
 body {
         height: 100vh;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-color: #474447;
 }
 .calculator {
         box-sizing: border-box;
@@ -15,7 +23,7 @@ body {
         background: lightgoldenrodyellow;
         border: 3px solid #600080;
         border-radius: 7px;
-        box-shadow: 2px #f2ccff; 
+        box-shadow: 4px 4px 1px 2px #f2ccff; 
 }
 
 #displayTop,
@@ -29,7 +37,6 @@ body {
 
 button {
         border-radius: 5px;
-        box-shadow: 2px;
 }
 
 .operator {

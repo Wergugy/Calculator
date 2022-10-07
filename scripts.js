@@ -77,7 +77,6 @@ function getInput() {
 };
 
 function clear() {
-        console.log(input);
         input.leftExp = null;
         input.rightExp = null;
         input.operator = null;
@@ -109,9 +108,12 @@ function updateAnswer(answer) {
 };
 
 function fixing() {
-        if (!input.operator) input.leftExp.length -1;
+        if (!input.operator) input.leftExp = input.leftExp.toString().replace(/.$/, '');
         else if (input.operator && input.rightExp === null) input.operator = null;
-        else input.rightExp.slice(0,-1);
+        else input.rightExp = input.rightExp.toString().replace(/.$/, '');
+        updateBotDisplay();
+        if (input.leftExp === '') input.leftExp = null;
+        if (input.rightExp === '') input.rightExp = null;
 }
 
 let answer = null;
